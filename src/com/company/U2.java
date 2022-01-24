@@ -1,6 +1,6 @@
 package com.company;
 
-public class U2 extends Rocket{
+public class U2 extends Rocket  {
 
     public U2(){
         cost = 120;
@@ -11,14 +11,12 @@ public class U2 extends Rocket{
     @Override
     public boolean launch(){
         double random = Math.random();
-        boolean success = random > 0.05*(currentWeight/maxWeight);
-        return success;
+        return random > 0.04*(currentWeight/maxWeight);
     }
 
     @Override
     public boolean land() {
         double random = Math.random();
-        boolean success = random > 0.01*(currentWeight/maxWeight);
-        return success;
+        return random > 0.08*(currentWeight/maxWeight);
     }
 }

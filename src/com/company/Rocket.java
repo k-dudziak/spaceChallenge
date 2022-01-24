@@ -17,12 +17,10 @@ public class Rocket implements SpaceShip {
     }
 
     public boolean canCarry(Item item) {
-        boolean canCarry = (currentWeight+item.weight) <= maxWeight;
-        return canCarry;
+        return (currentWeight+item.weight) <= maxWeight;
     }
 
     public int carry(Item item) {
-        this.maxWeight = this.maxWeight+item.weight;
-        return this.maxWeight;
+        return maxWeight = maxWeight+item.weight;
     }
 }

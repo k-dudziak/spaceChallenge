@@ -15,17 +15,17 @@ public class Simulation {
         while (scannedFile.hasNextLine()){
             String [] nameWeightArray = scannedFile.nextLine().split("=");
             item.name = nameWeightArray[0];
-            item.weight = Integer.parseInt(nameWeightArray[1]);
+            item.weight = Integer.parseInt(nameWeightArray[1])/1000;
             itemsList.add(item);
         }
         return itemsList;
     }
 
-    public ArrayList<Rocket> loadU1(ArrayList<Item> itemslist) {
+    public ArrayList<Rocket> loadU1(ArrayList<Item> itemsList) {
         ArrayList<Rocket> u1rockets = new ArrayList();
         Rocket newU1 = new U1();
 
-        for (Item item : itemslist) {
+        for (Item item : itemsList) {
             if (newU1.canCarry(item)) {
                 u1rockets.add(newU1);
             } else {
@@ -36,11 +36,11 @@ public class Simulation {
         return u1rockets;
     }
 
-    public ArrayList<Rocket> loadU2(ArrayList<Item> itemslist) {
+    public ArrayList<Rocket> loadU2(ArrayList<Item> itemsList) {
         ArrayList<Rocket> u2rockets = new ArrayList();
         Rocket newU2 = new U2();
 
-        for (Item item : itemslist) {
+        for (Item item : itemsList) {
             if (newU2.canCarry(item)) {
                 u2rockets.add(newU2);
             } else {
