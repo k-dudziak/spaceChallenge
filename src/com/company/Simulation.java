@@ -10,9 +10,9 @@ public class Simulation {
     public ArrayList<Item> loadItems(File file) throws FileNotFoundException {
         Scanner scannedFile = new Scanner(file);
         ArrayList<Item> itemsList = new ArrayList();
-        Item item = new Item();
 
         while (scannedFile.hasNextLine()){
+            Item item = new Item();
             String [] nameWeightArray = scannedFile.nextLine().split("=");
             item.name = nameWeightArray[0];
             item.weight = Integer.parseInt(nameWeightArray[1])/1000;
@@ -26,8 +26,8 @@ public class Simulation {
         Rocket newU1 = new U1();
 
         for (Item item : itemsList) {
-            if (newU1.canCarry(item)) {
-                u1rockets.add(newU1);
+            if (newU1.canCarry(item.weight)) {
+                newU1.carry(item.weight);
             } else {
                 newU1 = new U1();
                 u1rockets.add(newU1);
@@ -41,8 +41,8 @@ public class Simulation {
         Rocket newU2 = new U2();
 
         for (Item item : itemsList) {
-            if (newU2.canCarry(item)) {
-                u2rockets.add(newU2);
+            if (newU2.canCarry(item.weight)) {
+                newU2.carry(item.weight);
             } else {
                 newU2 = new U2();
                 u2rockets.add(newU2);
